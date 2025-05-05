@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!name || !email || !message) {
             e.preventDefault();
-            alert('Please fill in all fields');
+            showMessage('Please fill in all fields', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
             e.preventDefault();
-            alert('Please enter a valid email address');
+            showMessage('Please enter a valid email address', 'error');
             return;
         }
     });
@@ -51,5 +51,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function isValidEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
+    }
+    
+    // Function to show status messages
+    function showMessage(message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'status-message';
+        messageDiv.textContent = message;
+        messageDiv.style.color = type === 'error' ? 'red' : 'green';
+        
+        contactForm.parentNode.insertBefore(messageDiv, contactForm);
+        
+        // Remove message after 5 seconds
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 5000);
     }
 }); 
