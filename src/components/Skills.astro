@@ -1,0 +1,77 @@
+<section id="skills" class="skills">
+  <h2>Compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <i class="fas fa-code"></i>
+      <h3>Web Development</h3>
+      <p>HTML/CSS, JavaScript, Angular</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-paint-brush"></i>
+      <h3>Design</h3>
+      <p>UI/UX, Figma</p>
+    </div>
+    <div class="skill-card">
+      <i class="fas fa-server"></i>
+      <h3>Data</h3>
+      <p>PostgreSQL, MySQL, Qlik (PowerBI)</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .skill-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+  }
+
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .skill-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 3rem 1rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 

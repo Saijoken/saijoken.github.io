@@ -1,0 +1,132 @@
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Hi, I'm <span class="highlight">Mohammed Ben Aicha</span></h1>
+    <p class="subtitle">Web and Data Developer</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="cta-button">Contacter</a>
+      <a href="/Mohammed-Ben-Aicha-FlowCV-Resume-20250622.pdf" class="cv-button" download>
+        <i class="fas fa-download"></i>
+        Mon CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .highlight {
+    color: var(--primary-color);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 2rem;
+  }
+
+  /* Hero Buttons Container */
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition);
+  }
+
+  .cta-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+  }
+
+  /* CV Button Styling */
+  .cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    transition: var(--transition);
+    font-weight: 600;
+  }
+
+  .cv-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .cv-button i {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button,
+    .cv-button {
+      width: 200px;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .cta-button,
+    .cv-button {
+      padding: 0.8rem 1.5rem;
+      width: 180px;
+    }
+  }
+</style> 

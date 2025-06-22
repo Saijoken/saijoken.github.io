@@ -1,0 +1,126 @@
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-image-placeholder">
+        <i class="fas fa-globe"></i>
+      </div>
+      <div class="project-content">
+        <h3>Projet FrontEnd - Conception d'une application d'enchères en ligne complexe avec framework Javascript (client et serveur) en groupe de 6</h3>
+        <p>Développement structure en HTML CSS Javascript (serveur/client) / Conception design IHM Figma + Wireframing. Prix du meilleur site web de la promotion.</p>
+        <a href="https://github.com/Saijoken/Replikas" class="project-link" target="_blank">View Project</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image-placeholder">
+        <i class="fas fa-mobile-alt"></i>
+      </div>
+      <div class="project-content">
+        <h3>Projet FullStack - Conception d'un Proof Of Concept d'une application de traçage d'information de Cab radio GSM-R</h3>
+        <p>Conception d'un Proof Of Concept d'une application de traçage d'information de Cab radio GSM-R. Etude technique, réalisation de maquette, tests de performance et réalisation de rapport.</p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-image-placeholder">
+        <i class="fas fa-database"></i>
+      </div>
+      <div class="project-content">
+        <h3>Projet Data - Conception d'une application d'Extraction Transformation et Chargement dans un environnement BI</h3>
+        <p>Conception d'une application d'Extraction Transformation et Chargement dans un environnement BI (Qlik). Réalisation d'un POC, d'un document technique ainsi que gestion du projet en autonomie avec suivi technique. Conception d'algorithmes optimisés de requêtes API (Rest/JSON) sous un environnement SGBD (QlikScript).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .project-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-image-placeholder i {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .project-content p {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+    line-height: 1.6;
+  }
+
+  .project-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: var(--transition);
+    align-self: flex-start;
+  }
+
+  .project-link:hover {
+    background-color: var(--secondary-color);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style> 
