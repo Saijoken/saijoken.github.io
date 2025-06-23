@@ -1,77 +1,196 @@
-<section id="skills" class="skills">
+---
+const skills = [
+  { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', url: 'https://developer.mozilla.org/fr/docs/Web/HTML' },
+  { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', url: 'https://developer.mozilla.org/fr/docs/Web/CSS' },
+  { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript' },
+  { name: 'Flutter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg', url: 'https://flutter.dev/' },
+  { name: 'Dart', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg', url: 'https://dart.dev/' },
+  { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', url: 'https://www.java.com/' },
+  { name: 'C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', url: 'https://isocpp.org/' },
+  { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg', url: 'https://angular.io/' },
+  { name: 'Astro', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css', url: 'https://astro.build/' },
+  { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', url: 'https://www.figma.com/' },
+  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg', url: 'https://www.postgresql.org/' },
+  { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', url: 'https://www.mysql.com/' },
+  { name: 'Qlik', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg', url: 'https://www.qlik.com/' },
+  { name: 'PowerBI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg', url: 'https://powerbi.microsoft.com/' }
+];
+---
+
+<section id="skills" class="skills-orbit">
   <h2>Compétences</h2>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <i class="fas fa-code"></i>
-      <h3>Web Development</h3>
-      <p>HTML/CSS, JavaScript, Angular</p>
+  <div class="orbit-center">
+    <div class="orbit-core">
+      <span>🌟</span>
+      <div class="orbit-label">Mes skills</div>
     </div>
-    <div class="skill-card">
-      <i class="fas fa-paint-brush"></i>
-      <h3>Design</h3>
-      <p>UI/UX, Figma</p>
-    </div>
-    <div class="skill-card">
-      <i class="fas fa-server"></i>
-      <h3>Data</h3>
-      <p>PostgreSQL, MySQL, Qlik (PowerBI)</p>
+    <div class="orbit-ring">
+      {skills.map((skill, idx) => {
+        const angle = (2 * Math.PI * idx) / skills.length;
+        const radius = 300; // rayon augmenté
+        const x = Math.cos(angle) * radius - 30;
+        const y = Math.sin(angle) * radius - 20;
+        return (
+          <a
+            href={skill.url}
+            class="orbit-skill"
+            style={`transform: translate(${x}px, ${y}px);`}
+            target="_blank"
+            rel="noopener"
+            title={skill.name}
+          >
+            <img src={skill.logo} alt={skill.name} />
+            <span>{skill.name}</span>
+          </a>
+        );
+      })}
+      <svg class="orbit-svg" width="480" height="480" viewBox="0 0 480 480" style="position:absolute;left:-240px;top:-240px;pointer-events:none;">
+        <circle cx="240" cy="240" r="200" stroke="#2563eb" stroke-width="2" fill="none" stroke-dasharray="8 8" />
+      </svg>
     </div>
   </div>
 </section>
 
 <style>
-  /* Sections */
-  section {
-    padding: 5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.skills-orbit {
+  padding: 15rem 2rem 8rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto 5rem auto;
+  min-height: 700px;
+}
+.skills-orbit h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 6rem;
+  margin-top: 0;
+  color: var(--text-color);
+}
+.orbit-center {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orbit-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  box-shadow: 0 2px 20px rgba(37,99,235,0.10);
+}
+.orbit-core span {
+  font-size: 2.8rem;
+}
+.orbit-label {
+  margin-top: 0.3rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+}
+.orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 1;
+}
+.orbit-skill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s, color 0.2s;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.08);
+  padding: 0.5rem 0.7rem;
+  min-width: 70px;
+  border: 3px solid #e5e7eb;
+  position: absolute;
+  overflow: visible;
+  z-index: 1;
+  will-change: transform;
+}
+.orbit-skill img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.2rem;
+  object-fit: contain;
+  display: block;
+}
+.orbit-skill::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 15px;
+  padding: 0;
+  z-index: -1;
+  background: linear-gradient(270deg, #ff0080, #7928ca, #007cf0, #00dfd8, #ff0080);
+  background-size: 400% 400%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.orbit-skill:hover {
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+  transform: scale(1.18);
+  z-index: 3;
+  border-color: transparent;
+  background: white;
+  /* Suppression de l'animation pop */
+}
+.orbit-skill:hover::before {
+  opacity: 1;
+  animation: rainbow-border 2s linear infinite;
+}
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
   }
-
-  section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--text-color);
+  100% {
+    background-position: 100% 50%;
   }
-
-  /* Skills Section */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 0 1rem;
+}
+.orbit-svg {
+  z-index: 0;
+}
+@media (max-width: 900px) {
+  .skills-orbit {
+    max-width: 98vw;
+    min-height: 480px;
+    padding: 7rem 0.5rem 5rem 0.5rem;
   }
-
-  .skill-card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: var(--transition);
+  .orbit-center {
+    width: 320px;
+    height: 320px;
   }
-
-  .skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 600px) {
+  .skills-orbit {
+    min-height: 320px;
+    padding: 4.5rem 0.2rem 3rem 0.2rem;
   }
-
-  .skill-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+  .orbit-center {
+    width: 220px;
+    height: 220px;
   }
-
-  .skill-card h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  @media (max-width: 768px) {
-    section {
-      padding: 3rem 1rem;
-    }
-
-    .skills-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style> 
+}
+</style>
